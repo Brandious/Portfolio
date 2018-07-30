@@ -1,0 +1,55 @@
+$glavna-boja: #444;
+$sporedna-boja: #eece1a;
+
+$show-home-image: true;
+$home-image: url(../img/background.jpg);
+$background-opacity: 0.5;
+
+@mixin EaseOut {
+  transition: all 0.5s ease-out;
+}
+
+@mixin Background {
+  @if $show-home-image {
+    &#bg-img {
+      background: $home-image;
+      background-attachment: fixed;
+      background-size: cover;
+
+      &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        z-index: -1;
+        height: 100%;
+        background: rgba($glavna-boja, $background-opacity);
+      }
+    }
+  }
+}
+
+@mixin MediaSm {
+  @media screen and (max-width: 500px) {
+    @content;
+  }
+}
+
+@mixin MediaMd {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin MediaLg {
+  @media screen and (min-width: 769px) and (max-width: 1170px) {
+    @content;
+  }
+}
+
+@mixin MediaXL {
+  @media screen and (min-width: 1171px) {
+    @content;
+  }
+}

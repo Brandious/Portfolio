@@ -1,0 +1,162 @@
+@import "config";
+@import "menu";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  @include Background();
+  background: $glavna-boja;
+  color: #fff;
+  height: 100%;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 400;
+
+  &.lg-heading {
+    font-size: 6rem;
+  }
+
+  &.sm-heading {
+    margin-bottom: 2rem;
+    padding: 0.2rem 1rem;
+    // background: rgba(lighten($glavna-boja, 2), 0.5);
+  }
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+header {
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+}
+
+.text-secondary {
+  color: $sporedna-boja;
+}
+
+main {
+  padding: 4rem;
+  // height: 100%;
+  min-height: calc(100vh-60px);
+
+  .icons {
+    margin-top: 1rem;
+    a {
+      padding: 0.4rem;
+      &:hover {
+        color: $sporedna-boja;
+        @include EaseOut();
+      }
+    }
+  }
+  &#home {
+    overflow: hidden;
+    h1 {
+      margin-top: 20vh;
+    }
+  }
+}
+
+.work-info {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-areas:
+    "workimage work work"
+    "job-1 job-2 job-3";
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.work-image {
+  grid-area: workimage;
+  margin: auto;
+  border-radius: 50%;
+  border: $sporedna-boja 3px solid;
+}
+
+.work {
+  grid-area: work;
+  font-size: 1.5rem;
+}
+
+.job-1 {
+  grid-area: job-1;
+}
+
+.job-2 {
+  grid-area: job-2;
+}
+
+.job-3 {
+  grid-area: job-3;
+}
+
+.job {
+  background: lighten($glavna-boja, 5);
+  padding: 0.5rem;
+  border-bottom: $sporedna-boja 5px solid;
+}
+
+//Projects
+
+.projects {
+  display: grid;
+  grid-gap: 0.7rem;
+  grid-template-columns: repeat(3, 1fr);
+  img {
+    width: 100%;
+    border: 3px #fff solid;
+
+    &:hover {
+      opacity: 0.5;
+      border-color: $sporedna-boja;
+      @include EaseOut;
+    }
+  }
+}
+
+//Button Styles
+.btn {
+  display: block;
+  padding: 0.5rem 1rem;
+  border: 0;
+  margin-bottom: 0.3rem;
+  &:hover {
+    background: $sporedna-boja;
+    color: set-text-color($sporedna-boja);
+  }
+}
+
+.btn-dark {
+  @extend .btn;
+  background: darken($glavna-boja, 50);
+  color: #fff;
+}
+
+.btn-light {
+  @extend .btn;
+  background: lighten($glavna-boja, 50);
+  color: #333;
+}
+
+#main-footer {
+  text-align: center;
+  padding: 1rem;
+  background: darken($glavna-boja, 10);
+  color: set-text-color($glavna-boja);
+  height: 60px;
+}
+
+@import "mobile";
